@@ -1,11 +1,14 @@
-%p#notice = notice
+%p#notice
+  = notice
 
 %p
-  %strong Name:
+  %strong
+    Name:
     = @user.name
 
 %p
-  %strong Age:
+  %strong
+    Age:
     = @user.age
 
 = link_to 'Edit', edit_user_path(@user)

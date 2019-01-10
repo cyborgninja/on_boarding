@@ -15,13 +15,13 @@
           = user.name
         %td
           = user.age
-        -# %td
-        -#   = link_to 'Show', users_path
-        -# %td
-        -#   = link_to 'Edit', edit_user_path(user)
-        -# %td
-        -#   = link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }
+        %td
+          = link_to 'Show', users_path
+        %td
+          = link_to 'Edit', edit_user_path(user)
+        %td
+          = link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 
-= link_to 'New User', users_new_path
+-# = link_to 'New User', users_new_path
