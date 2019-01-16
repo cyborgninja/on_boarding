@@ -9,6 +9,7 @@ class Blogs::EntriesController < ApplicationController
   def show
     @blog = Blog.find(params[:blog_id])
     @entry = @blog.entries.find(params[:id])
+    @comments = @entry.comments
   end
 
   def new
@@ -40,7 +41,7 @@ class Blogs::EntriesController < ApplicationController
   end
 
   def destroy
-    @entry.destroys
+    @entry.destroy
     respond_to do |format|
       format.html { redirect_to blogs_url, notice: 'entry was successfully destroyed' }
       format.json { head :not_content }

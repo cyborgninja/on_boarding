@@ -21,5 +21,21 @@
     %tbody
       %tr
 
+.commentIndex
+  - @comments.each do |comment|
+    - if comment.status == Comment::COMMENT_STATUS_APPROVED
+      id:
+      = comment.id
+      body:
+      = comment.body
+      entry_id:
+      = comment.entry_id
+    - else
+      %span （承認待ち）
+      = link_to 'Approve', approve_blog_entry_comment_path(@blog, @entry, comment), method: :put
+    = link_to 'Destroy', blog_entry_comment_path(@blog, @entry, comment), method: :delete
+    %br
+
 .commentForm
-  -# = render './'
+  %p
+    = link_to 'Create Comment', new_blog_entry_comment_path(@blog, @entry)

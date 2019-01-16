@@ -5,7 +5,13 @@ Rails.application.routes.draw do
   resources :entries, only: :index
   resources :blogs do
     scope module: :blogs do
-      resources :entries
+      resources :entries do
+        scope module: :entries do
+          resources :comments do
+            put :approve, on: :member
+          end
+        end
+      end
     end
   end
 
