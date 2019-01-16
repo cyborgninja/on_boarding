@@ -1,0 +1,7 @@
+- blog = @blog
+- @entries.each do |entry|
+  = entry.id
+  = entry.title
+  = entry.body
+  = link_to "entry詳細", blog_entry_path(blog, entry)
+  %br

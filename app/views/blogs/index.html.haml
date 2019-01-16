@@ -11,8 +11,10 @@
         %td
           = blog.title
         %td
-          = link_to 'Show', blogs_path
+          = link_to 'Show', blog_path(blog)
         %td
           = link_to 'Edit', edit_blog_path(blog)
         %td
           = link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' }
+        %td
+          = link_to 'Create Entry', new_blog_entry_path(blog)

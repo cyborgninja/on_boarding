@@ -2,7 +2,7 @@
   - if blog.errors.any?
     #error_explanation
       %h2
-        = plralize(blog.errors.count, "error")
+        = pluralize(blog.errors.count, "error")
         prohibited this blog from being saved:
       %ul
         - blog.errors.full_messages.each do |message|

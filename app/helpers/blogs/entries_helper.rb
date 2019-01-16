@@ -1,0 +1,2 @@
+module Blogs::EntriesHelper
+end

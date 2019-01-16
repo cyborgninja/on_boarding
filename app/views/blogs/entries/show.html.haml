@@ -1,0 +1,25 @@
+= @blog.title
+%br
+  %p
+    ID:
+    = @entry.id
+  %p
+    Title:
+    = @entry.title
+  %p
+    Body:
+    = @entry.body
+%p
+  = link_to 'Edit', edit_blog_entry_path(@blog, @entry)
+%p
+  = link_to 'Back', blog_entries_path(@blog)
+
+.listingComments
+  %table
+    %thead
+      %tr Listing comments
+    %tbody
+      %tr
+
+.commentForm
+  -# = render './'

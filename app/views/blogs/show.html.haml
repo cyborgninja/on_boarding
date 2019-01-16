@@ -5,6 +5,13 @@
   %strong
     Title:
     = @blog.title
+- @entries.each do |entry|
+  = entry.id
+  = entry.title
+  = entry.body
+  = link_to "entry詳細", blog_entry_path(@blog, entry)
+
+  %br
 
 = link_to 'Edit', edit_blog_path(@blog)
 = link_to 'Back', blogs_path
