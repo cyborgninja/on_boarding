@@ -16,14 +16,15 @@ class Blogs::Entries::CommentsController < ApplicationController
     @comment = Comment.new
   end
 
-  def edit
-
-  end
+  def edit; end
 
   def create
-    @entry = Entry.find(params[:entry_id])
+    @blog = Blog.find(params[:blog_id])
+    @entry = @blog.entries.find(params[:entry_id])
     @comment = Comment.new(create_params)
     if @comment.save
+      NotificationMailer.send_confirmation_when_comment_created(@blog, @entry, @comment).deliver
+      # NotificationMailer.send_confirmation.deliver
       redirect_to blog_entry_path(id: @entry.id)
     else
       redirect_to new_blog_entry_comment_path

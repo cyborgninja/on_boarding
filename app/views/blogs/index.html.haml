@@ -10,6 +10,8 @@
       %tr
         %td
           = blog.title
+          -# = blog.title.html_safe
+
         %td
           = link_to 'Show', blog_path(blog)
         %td
@@ -18,3 +20,6 @@
           = link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' }
         %td
           = link_to 'Create Entry', new_blog_entry_path(blog)
+
+%p
+  = link_to 'Create Blog', new_blog_path

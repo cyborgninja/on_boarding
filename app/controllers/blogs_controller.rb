@@ -6,6 +6,7 @@ class BlogsController < ApplicationController
   end
 
   def show
+    @blog = Blog.where("id = #{params[:id]}").first
     @entries = @blog.entries
   end
 
@@ -55,7 +56,7 @@ class BlogsController < ApplicationController
     end
 
     def blog_params
-      params.require(:blog).permit(:name, :age)
+      params.require(:blog).permit(:title)
     end
 
 end
