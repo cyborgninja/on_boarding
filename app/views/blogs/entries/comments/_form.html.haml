@@ -1,16 +1,3 @@
-= form_with(model: [blog, entry, comment], local: true) do |form|
-  - if comment.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(comment.errors.count, "error")
-        prohibited this comment form being saved:
-      %ul
-        - comment.errors.full_messages.each do |message|
-          %li
-            = message
-  .field
-    = form.label :body
-    = form.text_field :body
-
-  .actions
-    = form.submit
+= simple_form_for([blog, entry, comment]) do |form|
+  = form.input :body
+  = form.button :submit
