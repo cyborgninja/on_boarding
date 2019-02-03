@@ -8,5 +8,23 @@
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag 'application'
 
+    %p.notice
+      = notice
+    %p.alert
+      = alert
+
   %body
+    %header
+      %nav
+        = link_to 'Signin with Google', user_google_oauth2_omniauth_authorize_path(:google_oauth2)
+
+        - if user_signed_in?
+          %strong
+            -# = link_to current_user.username, pages_show_path
+          = link_to 'プロフィール変更', edit_user_registration_path
+          = link_to 'ログアウト', destroy_user_session_path, method: :delete
+        - else
+          = link_to 'サインアップ', new_user_registration_path
+          = link_to 'ログイン', new_user_session_path
+
     = yield
