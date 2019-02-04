@@ -21,12 +21,12 @@
         - if current_user
           login user:
           = current_user.name
-        - if can? :update, current_user
-          %h1 You can update
-        - if can? :read, current_user
-          %h1 You can read member
-        - if current_user.role == "admin"
-          %p You are admin user
+          - if can? :update, current_user
+            %h1 You can update
+          - if can? :read, current_user
+            %h1 You can read member
+          - if current_user.role == "admin"
+            %p You are admin user
 
         - if user_signed_in?
           %strong
