@@ -34,6 +34,8 @@ gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
 
 gem 'cancancan', '~> 2.0'
+
+gem 'enumerize'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password

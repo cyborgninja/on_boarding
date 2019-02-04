@@ -1,0 +1,9 @@
+ja:
+  enumerize:
+    user:
+      sex:
+        male: 男
+        female: 女
+      role:
+        normal: 一般
+        admin: 管理者
