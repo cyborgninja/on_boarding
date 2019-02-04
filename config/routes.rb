@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  root to: 'products#index'
+  resources :products
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   # これ↓がないとmailerでURLが表示できない
   default_url_options host: 'localhost:3000'
 
-  root to: 'users#index'
+  # root to: 'users#index'
 
   resources :users
   resources :entries, only: :index
