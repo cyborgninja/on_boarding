@@ -16,7 +16,9 @@
   %body
     %header
       %nav
-        = link_to 'Signin with Google', user_google_oauth2_omniauth_authorize_path
+        = link_to 'Signin with Google', user_google_oauth2_omniauth_authorize_path(:facebook)
+        %br
+        = link_to 'Signin with Facebook', user_facebook_omniauth_authorize_path
         %br
         - if current_user
           login user:

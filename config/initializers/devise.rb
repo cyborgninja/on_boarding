@@ -292,6 +292,9 @@ Devise.setup do |config|
   config.omniauth :google_oauth2,
                     Rails.application.secrets.google_client_id,
                     Rails.application.secrets.google_client_secret
+  config.omniauth :facebook, Rails.application.secrets.facebook_client_id,
+                             Rails.application.secrets.facebook_client_secret
+
   OmniAuth.config.logger = Rails.logger if Rails.env.development? # debug用
   # end
 end
