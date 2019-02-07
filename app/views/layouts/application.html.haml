@@ -16,9 +16,6 @@
   %body
     %header
       %nav
-        = link_to 'Signin with Google', user_google_oauth2_omniauth_authorize_path(:facebook)
-        %br
-        = link_to 'Signin with Facebook', user_facebook_omniauth_authorize_path
         %br
         - if current_user
           login user:
@@ -29,14 +26,30 @@
             %h1 You can read member
           - if current_user.role == "admin"
             %p You are admin user
+        - else
+          %p
+            = link_to 'Signup/Signin with Google', user_google_oauth2_omniauth_authorize_path
+          %p
+            = link_to 'Signup/Signin with Facebook', user_facebook_omniauth_authorize_path
+          %p
+            = link_to 'login', new_user_session_path
+
 
         - if user_signed_in?
           %strong
             -# = link_to current_user.username, pages_show_path
-          = link_to 'プロフィール変更', edit_user_registration_path
-          = link_to 'ログアウト', destroy_user_session_path, method: :delete
+          %p
+            = link_to 'edit profile', edit_user_registration_path
+          %p
+            = link_to 'logout', destroy_user_session_path, method: :delete
         - else
-          = link_to 'サインアップ', new_user_registration_path
-          = link_to 'ログイン', new_user_session_path
+          %p
+            = link_to 'sign up', new_user_registration_path
+          %p
+            = link_to 'login', new_user_session_path
 
     = yield
+
+
+    %footer
+      = render 'layouts/footer'

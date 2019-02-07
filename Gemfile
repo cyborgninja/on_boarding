@@ -72,6 +72,7 @@ group :development do
 
   gem "letter_opener", "~> 1.1.0"
 
+  gem 'letter_opener_web'
 end
 
 group :test do
