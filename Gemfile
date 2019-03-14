@@ -41,6 +41,8 @@ gem 'carrierwave'
 
 gem 'ransack'
 
+gem 'rb-readline'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -78,6 +80,10 @@ end
 group :test do
   gem 'factory_bot_rails'
   gem 'database_cleaner'
+  gem 'launchy'
+  gem 'capybara'
+  gem 'poltergeist'
+  gem 'database_rewinder'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

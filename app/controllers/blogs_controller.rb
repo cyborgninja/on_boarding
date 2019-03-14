@@ -1,5 +1,6 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  authorize_resource
 
   def index
     @blogs = Blog.all
@@ -17,7 +18,7 @@ class BlogsController < ApplicationController
   def edit; end
 
   def create
-    @blog = Blog.new(blog_params)
+    @blog = current_user.blogs.new(blog_params)
 
     respond_to do |format|
       if @blog.save

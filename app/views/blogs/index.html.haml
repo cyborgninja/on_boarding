@@ -22,6 +22,10 @@
           = link_to 'Create Entry', new_blog_entry_path(blog)
         %td
           = link_to 'エントリーCSV出力', blog_entries_path(blog, format: :csv)
+        %td
+          author:
+          = blog.user.name
+
 
 %p
   = link_to 'Create Blog', new_blog_path

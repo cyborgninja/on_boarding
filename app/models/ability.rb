@@ -5,17 +5,9 @@ class Ability
 
     can :read, :all
     if user.present?
-      # can :manage, Post, user_id: user.id
-      # can :read
-      if user.role == "normal"
-        cannot :update, :all
-      end
-      if user.role == "admin"
+      if user.role == 'admin'
         can :manage, :all
       end
-      # if user.admin?
-      #   can :manage, :all
-      # end
     end
 
     # Define abilities for the passed in user here. For example:
